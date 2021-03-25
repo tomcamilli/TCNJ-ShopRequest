@@ -26,6 +26,16 @@ class User
 		# food insecurity level
 end
 
+class Hello
+	def initialize(name)
+		@name = name.capitalize
+	end
+
+	def salute
+		puts "Hello #{@name}!"
+	end
+end
+
 def readItems
 	# reads in the values as a list of Item objects and stores it in database
 	# This might not be necessary (because the entries into the database can be done by hand pretty easily.
@@ -55,5 +65,7 @@ def removeUser
 end
 
 def main
+	h = Hello.new("Ruby")
+	h.salute
 end
 main

@@ -33,3 +33,16 @@ Rails.application.routes.draw do
   # # It would have extected to: 'add_tags#add', which would fail
   # put '/add_tags/add', to: 'users#add_tags'
 end
+
+Rails.application.routes.draw do
+  get "/orderfood", to: "orderfood#index"
+end
+
+Rails.application.routes.draw do
+  get "/orderlist", to: "orderlist#index"
+end
+
+Rails.application.routes.draw do
+  get "/graphs", to: "graphs#index"
+end
+
