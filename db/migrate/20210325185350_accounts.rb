@@ -1,9 +1,9 @@
-class Accounts < ActiveRecord::Migration
+class Accounts < ActiveRecord::Migration[6.0]
   def self.up
 	create_table :accounts do |t|
 		t.column :name, :string, :limit => 32
 		t.column :email, :string, :limit => 32
-		t.column :status, :text,
+		t.column :status, :text
 		t.column :orderTracking, :Boolean
 		t.column :numHousehold, :integer
 		t.column :orderedToday, :Boolean

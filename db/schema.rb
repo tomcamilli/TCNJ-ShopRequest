@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_190602) do
+ActiveRecord::Schema.define(version: 2021_03_25_185408) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "name", limit: 32
+    t.string "email", limit: 32
+    t.text "status"
+    t.boolean "orderTracking"
+    t.integer "numHousehold"
+    t.boolean "orderedToday"
+    t.float "rateVisits"
+    t.float "avgOrdered"
+  end
 
   create_table "app_configs", force: :cascade do |t|
     t.string "name"
     t.string "logo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name", limit: 32
+    t.string "email", limit: 32
+    t.date "date"
+    t.integer "numChicken"
+    t.integer "numFish"
   end
 
   create_table "users", force: :cascade do |t|

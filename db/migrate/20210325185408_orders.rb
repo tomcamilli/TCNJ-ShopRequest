@@ -1,4 +1,4 @@
-class Orders < ActiveRecord::Migration
+class Orders < ActiveRecord::Migration[6.0]
   def self.up
 	create_table :orders do |t|
 		t.column :name, :string, :limit => 32
