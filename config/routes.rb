@@ -46,3 +46,7 @@ Rails.application.routes.draw do
   get "/graphs", to: "graphs#index"
 end
 
+Rails.application.routes.draw do
+  get "/signup", to: "signup#index"
+end
+
