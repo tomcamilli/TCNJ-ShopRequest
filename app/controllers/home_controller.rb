@@ -18,4 +18,10 @@ class HomeController < ApplicationController
   # in the view to be displayed. Do not look up information within the
   # view itself. Do it here, please!
   def index; end
+
+  def create
+
+
+  end
+
 end
