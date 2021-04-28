@@ -175,10 +175,12 @@ div.count {
 	}
 	function removeElement(elem) {
 		var index = orderList.indexOf(elem);
+		var found = false;
 		if (index > -1) {
 			orderList.splice(index, 1);
+			found = true;
 		}	
-		if (orderNum > 1) {
+		if (orderNum >= 1 && found == true) {
 			orderNum = orderNum - 1;
 		}
 	}	
