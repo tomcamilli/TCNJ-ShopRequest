@@ -1,4 +1,162 @@
-<h1>Order food page</h1>
-<p>Find me in app/views/orderfood/index.html.erb</p>
+<html>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
-<p>More text here</p>
+h6 { 
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px 0;
+}
+
+div.food {
+	position: relative;
+	left: 100;
+	width: 450;
+	background-color: gold;
+	padding: 10px;
+	border: 5px solid: gray;
+	margin: 0;
+	border-radius: 9px;
+}
+
+div.count {
+	position: relative;
+	display: inline-block;
+	font-size: 16px;
+	float: right;
+}		
+
+.btn {
+	border: none;
+	background-color: inherit;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.order {
+	position: relative;
+	left: 250px;
+}
+.return {
+	position: relative;
+	left: 350px;
+}
+
+.plus {
+	position: relative;
+	right: 90px;
+	width: 20;
+	border: solid;
+	background-color: inherit;
+	padding: 1px 13px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 12px;
+	float: right;
+}
+
+.minus {
+	position: relative;
+	width: 20;
+	border: solid;
+	background-color: inherit;
+	padding: 1px 13px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 12px;
+	float: right;
+}
+
+.bl {
+	color: mediumblue;
+}
+.bl:hover {
+	background: #2196F3;
+	color: white;
+}
+
+.go {
+	color: gold;
+}
+.go:hover {
+	background: #2196F3;
+	color: white;
+}
+</style>
+
+<h2>Place your order here!</h2>
+<div class="food">
+	<h6>Frozen Fish</h6>
+	<button class="btn bl plus" onclick="addElement('Frozen Fish');displayList();displayCount();">+</button>
+	<button class="btn bl minus" onclick="removeElement('Frozen Fish');displayList();displayCount();">-</button>
+</div>
+<pre>
+</pre>
+<div class="food">
+	<h6>Frozen Chicken</h6>
+	<button class="btn bl plus" onclick="addElement('Frozen Chicken');displayList();displayCount();">+</button>
+	<button class="btn bl minus" onclick="removeElement('Frozen Chicken');displayList();displayCount();">-</button>
+</div>
+
+<pre>
+
+</pre>
+<h5>Shopping Cart</h5>
+<div class="count" id="counter"></div>
+<div id="shoppingCart"></div>
+<pre>
+
+
+
+</pre>
+<button class="btn go order" onclick="confirmOrder()">
+	<%= link_to "Order",  controller:"home", action:"create"  %>
+</button>
+
+<button class="btn go return">
+	<%= link_to "Cancel", controller:"home" %>
+</button>
+
+<script>
+	var orderList = [];
+	var orderNum = 0;
+	var limit = 10;
+	function confirmOrder() {
+		confirm("Are you sure you want to place this order?");
+	}
+	function addElement(elem) {
+		if (orderNum < limit) {
+			orderList.push(elem);
+			orderNum = orderNum + 1;
+		}
+	}
+	function removeElement(elem) {
+		var index = orderList.indexOf(elem);
+		if (index > -1) {
+			orderList.splice(index, 1);
+		}	
+		if (orderNum > 1) {
+			orderNum = orderNum - 1;
+		}
+	}	
+	function displayList() {
+		var nHTML = '';
+		orderList.forEach(function(meal) {
+			nHTML += '<li>' + meal + '</li>';
+		});
+		document.getElementById('shoppingCart').innerHTML = '<ul>' + nHTML + '</ul>';
+	}
+	function displayCount() {
+		document.getElementById('counter').innerHTML = '(' + orderNum + '/' + limit + ')';
+	}
+</script>
+
+</body>
+</html>

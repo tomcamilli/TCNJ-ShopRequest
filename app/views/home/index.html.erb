@@ -6,6 +6,36 @@
 h1 { text-align: center; }
 h5 { text-align: center; }
 p { text-align: center; }
+h6 {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px 0;
+}
+
+div.limit {
+	position: relative;
+	left: 100;
+	width: 300;
+	background-color: gold;
+	padding: 10px;
+	border: 5px solid: gray;
+	margin: 0;
+	border-radius: 9px;
+}
+
+div.limitInput {
+	position: relative;
+	left: 20px;
+	width: 20;
+	border: solid;
+	background-color: inherit;
+	padding: 1px 13px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 12px;
+}
 
 .btn {
 	border: none;
@@ -14,6 +44,21 @@ p { text-align: center; }
 	font-size: 16px;
 	cursor: pointer;
 	display: inline-block;
+}
+
+.submitLimit {
+	position: relative;
+	left: 35px;
+	width: 90px;
+	height: 37px;
+	border: solid;
+	background-color: inherit;
+	padding: 1px 5px;
+	font-size: 12px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 12px;
 }
 
 .bl {
@@ -65,6 +110,23 @@ p { text-align: center; }
 <button class="btn go block margin-auto">
 	<%= link_to "View Graphs", controller:"graphs" %>
 </button>
+<pre>
+
+</pre>
+<div class="limit">
+	<h6>Enter a limit on the number of meals ordered per person per day:</h6>
+	<div class="limitInput">
+		<input id="limit" name="limit" type="number" value="10" min="1" max="99">
+	</div>
+	<button class="btn bl submitLimit">Submit</button>
+</div>
+<pre>
+
+
+
+
+
+</pre>
 
 </body>
 </html>
