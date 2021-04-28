@@ -40,7 +40,7 @@ end
 
 Rails.application.routes.draw do
   get "/orderlist", to: "orderlist#index"
-  get "/", to: "home#create"
+  #get "/", to: "home#create"
 end
 
 Rails.application.routes.draw do

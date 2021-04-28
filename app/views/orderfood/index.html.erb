@@ -1,5 +1,5 @@
 <html>
-<body>
+<body onload="displayCount()">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
@@ -7,6 +7,13 @@ h6 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px 0;
+}
+h5 {
+	display: inline-block;
+}
+
+div.shopping-cart {
+	display: inline-block;
 }
 
 div.food {
@@ -34,6 +41,17 @@ div.count {
 	font-size: 16px;
 	cursor: pointer;
 	display: inline-block;
+}
+
+.clear {
+	position: relative;
+	display: inline-block;
+	width: 10;
+	height: 8;
+	padding: 1px 13px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 12px;
 }
 
 .order {
@@ -89,6 +107,14 @@ div.count {
 	background: #2196F3;
 	color: white;
 }
+
+.gon {
+	color: gold;
+}
+.gon:hover {
+	color: orange;
+}
+
 </style>
 
 <h2>Place your order here!</h2>
@@ -110,26 +136,36 @@ div.count {
 </pre>
 <h5>Shopping Cart</h5>
 <div class="count" id="counter"></div>
+<button class="btn gon clear" onclick="clearOrders();displayList();displayCount();">Clear</button>
 <div id="shoppingCart"></div>
 <pre>
 
 
-
 </pre>
-<button class="btn go order" onclick="confirmOrder()">
-	<%= link_to "Order",  controller:"home", action:"create"  %>
+<button class="btn bl order" onclick="confirmOrder()">
+	<%= link_to "Order", controller:"orderfood" %>
 </button>
 
-<button class="btn go return">
+<button class="btn bl return">
 	<%= link_to "Cancel", controller:"home" %>
 </button>
+<pre>
 
+</pre>
 <script>
 	var orderList = [];
 	var orderNum = 0;
 	var limit = 10;
 	function confirmOrder() {
-		confirm("Are you sure you want to place this order?");
+		if (orderNum != 0) {
+			var r = confirm("Are you sure you want to place this order?");
+		} else {
+			confirm("Please enter a valid number of orders.");
+		}
+	}
+	function clearOrders() {
+		orderList = [];
+		orderNum = 0;
 	}
 	function addElement(elem) {
 		if (orderNum < limit) {

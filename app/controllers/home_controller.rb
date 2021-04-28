@@ -19,9 +19,4 @@ class HomeController < ApplicationController
   # view itself. Do it here, please!
   def index; end
 
-  def create
-
-
-  end
-
 end
