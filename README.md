@@ -6,8 +6,6 @@
 
 **Limit Entry**: Any number that is entered into the text box on the home page isn't connected to the order food menu.
 
-**Cancel Order**: When an order is cancelled, it takes the user to the home page instead of leaving them at the order food page.
-
 **Models, Graphs & Order List**: Was unable to generate models in rails to represent the back-end database of orders. Thus, no statistics are being tracked and no graphs can be made.
 
 **Login Quiz**: When the user logs in, they should be queried about certain analytical info, such as name, email, number of people in their house, general location, etc. This will be used in constructing graphs and statistics for the employees of The Shop @ TCNJ.
