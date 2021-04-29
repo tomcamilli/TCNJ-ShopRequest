@@ -52,4 +52,8 @@ Find the correct binding for your VM if you're using one. Use the `--binding` fl
 
 The app should be available in the browser at [localhost:3000](localhost:3000).
 
-## Important Note: This project is still under development!
+## Important Notes: 
+
+Most edited files can be found in /home/student1/vm-csc415/tcnj-shoprequest/TCNJ-ShopRequest/app/views
+
+THIS PROJECT IS STILL UNDER DEVELOPMENT
