@@ -94,6 +94,7 @@ div.limitInput {
 <h1>TCNJ Shop Request</h1>
 <p>TCNJ Shop Request is an application designed to allow individuals with food insecurities in the Ewing and Mercer County communities to order food while tracking certain nonharmful analytics.</p>
 
+<!-- Button for accessing the order food menu -->
 <button class="btn go block margin-auto">
 	<%= link_to "Order Food", controller:"orderfood" %>
 </button>
@@ -103,16 +104,20 @@ div.limitInput {
 
 </pre>
 <h5>Commands for TCNJ Shop Employees Only</h5>
+<!-- Button for accessing the order database -->
 <button class="btn go block margin-auto">
 	<%= link_to "View Orders", controller:"orderlist" %>
 </button>
 
+<!-- Button for accessing the graphs menu -->
 <button class="btn go block margin-auto">
 	<%= link_to "View Graphs", controller:"graphs" %>
 </button>
 <pre>
 
 </pre>
+
+<!-- Sub-menu for changing the limit on the number of meals ordered per person per day -->
 <div class="limit">
 	<h6>Enter a limit on the number of meals ordered per person per day:</h6>
 	<div class="limitInput">

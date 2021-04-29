@@ -12,10 +12,12 @@ h5 {
 	display: inline-block;
 }
 
+// Section for the shopping cart
 div.shopping-cart {
 	display: inline-block;
 }
 
+// Section for the food bars
 div.food {
 	position: relative;
 	left: 100;
@@ -27,6 +29,7 @@ div.food {
 	border-radius: 9px;
 }
 
+// Section for the block with the counter
 div.count {
 	position: relative;
 	display: inline-block;
@@ -117,35 +120,50 @@ div.count {
 
 </style>
 
+
 <h2>Place your order here!</h2>
+
+<!-- Food bar for fish -->
 <div class="food">
 	<h6>Frozen Fish</h6>
+	<!-- Update count and list every time you add a fish -->
 	<button class="btn bl plus" onclick="addElement('Frozen Fish');displayList();displayCount();">+</button>
+	<!-- Update count and list every time you remove a fish -->
 	<button class="btn bl minus" onclick="removeElement('Frozen Fish');displayList();displayCount();">-</button>
 </div>
 <pre>
 </pre>
+
+<!-- Food bar for chicken -->
 <div class="food">
 	<h6>Frozen Chicken</h6>
+	<!-- Update count and list every time you add a chicken -->
 	<button class="btn bl plus" onclick="addElement('Frozen Chicken');displayList();displayCount();">+</button>
+	<!-- Update count and list every time you remove a chicken -->
 	<button class="btn bl minus" onclick="removeElement('Frozen Chicken');displayList();displayCount();">-</button>
 </div>
 
 <pre>
 
 </pre>
+
+<!-- Shopping Cart -->
 <h5>Shopping Cart</h5>
 <div class="count" id="counter"></div>
+<!-- Button clears shopping cart -->
 <button class="btn gon clear" onclick="clearOrders();displayList();displayCount();">Clear</button>
 <div id="shoppingCart"></div>
 <pre>
 
 
 </pre>
+
+<!-- Order food with this button -->
 <button class="btn bl order" onclick="confirmOrder()">
 	<%= link_to "Order", controller:"orderfood" %>
 </button>
 
+<!-- Return to home with this button -->
 <button class="btn bl return">
 	<%= link_to "Cancel", controller:"home" %>
 </button>
@@ -156,6 +174,7 @@ div.count {
 	var orderList = [];
 	var orderNum = 0;
 	var limit = 10;
+	// Function for confirming that the user wants to order what they selected.
 	function confirmOrder() {
 		if (orderNum != 0) {
 			var r = confirm("Are you sure you want to place this order?");
@@ -163,16 +182,19 @@ div.count {
 			confirm("Please enter a valid number of orders.");
 		}
 	}
+	// Function for emptying the shopping cart
 	function clearOrders() {
 		orderList = [];
 		orderNum = 0;
 	}
+	// Adds a specified element to the shopping cart
 	function addElement(elem) {
 		if (orderNum < limit) {
 			orderList.push(elem);
 			orderNum = orderNum + 1;
 		}
 	}
+	// Removes the first spotted specified element from the shopping cart
 	function removeElement(elem) {
 		var index = orderList.indexOf(elem);
 		var found = false;
@@ -184,6 +206,7 @@ div.count {
 			orderNum = orderNum - 1;
 		}
 	}	
+	// Displays the list in the shopping cart block
 	function displayList() {
 		var nHTML = '';
 		orderList.forEach(function(meal) {
@@ -191,6 +214,7 @@ div.count {
 		});
 		document.getElementById('shoppingCart').innerHTML = '<ul>' + nHTML + '</ul>';
 	}
+	// Displays the shopping cart's count
 	function displayCount() {
 		document.getElementById('counter').innerHTML = '(' + orderNum + '/' + limit + ')';
 	}
