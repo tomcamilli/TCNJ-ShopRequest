@@ -12,12 +12,10 @@ h5 {
 	display: inline-block;
 }
 
-// Section for the shopping cart
 div.shopping-cart {
 	display: inline-block;
 }
 
-// Section for the food bars
 div.food {
 	position: relative;
 	left: 100;
@@ -29,7 +27,6 @@ div.food {
 	border-radius: 9px;
 }
 
-// Section for the block with the counter
 div.count {
 	position: relative;
 	display: inline-block;
@@ -126,7 +123,6 @@ div.count {
 <!-- Food bar for fish -->
 <div class="food">
 	<h6>Frozen Fish</h6>
-	<!-- Update count and list every time you add a fish -->
 	<button class="btn bl plus" onclick="addElement('Frozen Fish');displayList();displayCount();">+</button>
 	<!-- Update count and list every time you remove a fish -->
 	<button class="btn bl minus" onclick="removeElement('Frozen Fish');displayList();displayCount();">-</button>
@@ -150,7 +146,6 @@ div.count {
 <!-- Shopping Cart -->
 <h5>Shopping Cart</h5>
 <div class="count" id="counter"></div>
-<!-- Button clears shopping cart -->
 <button class="btn gon clear" onclick="clearOrders();displayList();displayCount();">Clear</button>
 <div id="shoppingCart"></div>
 <pre>
