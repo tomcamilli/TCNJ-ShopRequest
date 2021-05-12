@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Devise authentification pages. This controlls the user login
   # and authentification system.
   devise_for :users
+  #devise_for :users do
+  #  get '/users/sign_out' => 'devise/sessions#destroy'
+  #end
 
   # Examples:
   #
@@ -49,5 +52,8 @@ end
 
 Rails.application.routes.draw do
   get "/signup", to: "signup#index"
+  devise_scope :user do
+    get "/users/sign_out" => 'devise/sessions#destroy'
+  end
 end
 
