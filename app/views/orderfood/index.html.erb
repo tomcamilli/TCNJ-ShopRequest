@@ -143,6 +143,14 @@ div.count {
 
 </pre>
 
+
+<!-- Enter time/date of pickup -->
+<%= form_with do |form| %>
+	<label for="pickuptime">Pickup (date and time): </label>
+	<%= form.datetime_local_field :pickuptime %>
+<pre>
+</pre>
+
 <!-- Shopping Cart -->
 <h5>Shopping Cart</h5>
 <div class="count" id="counter"></div>
@@ -214,6 +222,8 @@ div.count {
 		document.getElementById('counter').innerHTML = '(' + orderNum + '/' + limit + ')';
 	}
 </script>
+
+<% end %>
 
 </body>
 </html>
